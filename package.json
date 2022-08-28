@@ -11,11 +11,16 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@notionhq/client": "^2.1.1",
+    "date-fns": "^2.29.2",
     "next": "12.2.5",
+    "notion-to-md": "^2.5.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.3"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.4",
     "@types/node": "18.7.11",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
