@@ -98,7 +98,10 @@ const Layout = ({ children, posts }: TLayoutProps) => {
 
         <div className="h-full overflow-auto pt-24 pb-8 px-8 bg-gray-50">
           <Link href="/">
-            <a className="grid grid-cols-8 place-items-start items-baseline">
+            <a
+              className={`grid grid-cols-8 place-items-start items-baseline ${
+                router.asPath === '/' ? 'text-secondary-500' : 'text-gray-700'
+              }`}>
               <span>🏠 </span>
               <p className="col-span-7">Home</p>
             </a>
@@ -125,7 +128,7 @@ const Layout = ({ children, posts }: TLayoutProps) => {
                           className={`col-start-2 col-span-7 leading-7 ${
                             router.asPath === postPath
                               ? 'text-secondary-500'
-                              : ''
+                              : 'text-gray-700'
                           }`}>
                           {post.title}
                         </a>
@@ -142,8 +145,10 @@ const Layout = ({ children, posts }: TLayoutProps) => {
       <main
         className={`${
           isOpenMenu ? 'xl:ml-64' : 'xl:ml-0'
-        } flex-1 justify-self-center pt-24 pb-8 px-4 transition-all ease-in-out duration-300`}>
-        {children}
+        } flex-1 transition-all ease-in-out duration-300`}>
+        <div className="min-h-screen max-w-xl mx-auto pt-24 pb-8 px-4">
+          {children}
+        </div>
       </main>
     </div>
   )

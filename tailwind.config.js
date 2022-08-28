@@ -11,12 +11,13 @@ module.exports = {
       colors: {
         primary: colors.teal,
         secondary: colors.rose,
-        gray: colors.trueGray,
+        gray: colors.neutral,
       },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray[700]'),
+            fontWeight: '300',
             a: {
               color: theme('colors.secondary.500'),
               fontWeight: '400',
