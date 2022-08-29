@@ -158,7 +158,7 @@ const Layout = ({ children, posts }: TLayoutProps) => {
         className={`${
           isOpenMenu ? 'xl:ml-64' : 'xl:ml-0'
         } flex-1 transition-all ease-in-out duration-300`}>
-        <div className="min-h-screen max-w-xl mx-auto pt-24 pb-8 px-4">
+        <div className="min-h-screen max-w-xl mx-auto px-4 py-24">
           {children}
         </div>
       </main>

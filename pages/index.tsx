@@ -34,7 +34,7 @@ const Home: NextPage = () => {
             height={64}
             width={64}
             alt="Indra Arianggi"
-            className="h-48 w-48 rounded-md"
+            className="rounded-md"
           />
           <h1 className="text-3xl sm:text-4xl font-bold leading-[3rem]">
             Hi{' '}

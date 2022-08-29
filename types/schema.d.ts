@@ -69,6 +69,7 @@ export type BlogPost = {
   tags: SelectObject[]
   description: string
   date: string
+  author: PersonUserObjectResponse
 }
 
 export type PostPage = {

@@ -46,7 +46,7 @@ export default class NotionService {
         break
     }
 
-    const { Name, Category, Tags, Description, Updated, Slug } =
+    const { Name, Category, Tags, Description, Updated, Slug, Author } =
       page.properties as PageProperties
 
     return {
@@ -58,6 +58,7 @@ export default class NotionService {
       description: Description.rich_text[0].plain_text,
       date: Updated.last_edited_time,
       slug: Slug.formula.string,
+      author: Author.people[0],
     }
   }
 
