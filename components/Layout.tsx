@@ -1,9 +1,10 @@
-import React, { ReactElement, useMemo, useState } from 'react'
+import React, { ReactElement, useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import { BlogPost, PostGroupObject } from 'types/schema'
 import { CATEGORY_ORDER } from '@constants/index'
+import useWindowDimensions from '@hooks/useWindowDimensions'
 
 type TLayoutProps = {
   children: ReactElement
@@ -22,6 +23,7 @@ const initialPostGroup: PostGroupObject = Object.keys(CATEGORY_ORDER).reduce(
 
 const Layout = ({ children, posts }: TLayoutProps) => {
   const router = useRouter()
+  const { width: viewWidth } = useWindowDimensions()
   const [isOpenMenu, setIsOpenMenu] = useState(false)
 
   const postGroups = useMemo(() => {
@@ -33,17 +35,27 @@ const Layout = ({ children, posts }: TLayoutProps) => {
       }
     }, initialPostGroup)
 
-    const sortedGroupArray = Object.entries(groupObject).sort(
-      (itemA, itemB) => {
+    const sortedGroupArray = Object.entries(groupObject)
+      .filter((item) => {
+        // eslint-disable-next-line no-unused-vars
+        const [_, itemPosts] = item
+        return itemPosts.length > 0
+      })
+      .sort((itemA, itemB) => {
         const [itemAName] = itemA
         const [itemBName] = itemB
 
         return CATEGORY_ORDER[itemAName] - CATEGORY_ORDER[itemBName]
-      }
-    )
+      })
 
     return sortedGroupArray
   }, [posts])
+
+  useEffect(() => {
+    if (viewWidth <= 1024) {
+      setIsOpenMenu(false)
+    }
+  }, [router.asPath, viewWidth])
 
   return (
     <div className="flex">

@@ -36,7 +36,7 @@ const Home: NextPage = () => {
             alt="Indra Arianggi"
             className="h-48 w-48 rounded-md"
           />
-          <h1 className="text-4xl font-bold leading-[3rem]">
+          <h1 className="text-3xl sm:text-4xl font-bold leading-[3rem]">
             Hi{' '}
             <span role="img" aria-label="wave">
               👋
