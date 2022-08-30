@@ -8,6 +8,7 @@
         margin: 0;
         font-size: 20px;
         scroll-behavior: smooth;
+        overflow-wrap: anywhere;
         @apply text-gray-700;
     }
 

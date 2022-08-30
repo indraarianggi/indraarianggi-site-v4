@@ -58,7 +58,7 @@ const Layout = ({ children, posts }: TLayoutProps) => {
   }, [router.asPath, viewWidth])
 
   return (
-    <div className="flex">
+    <>
       <header className="fixed w-full p-4 z-10 bg-white border-b-2 border-gray-100 xl:border-none xl:bg-transparent">
         <button
           className="inline-flex items-center justify-center bg-white rounded-md p-2 text-gray-400 hover:text-gray-500"
@@ -157,12 +157,12 @@ const Layout = ({ children, posts }: TLayoutProps) => {
       <main
         className={`${
           isOpenMenu ? 'xl:ml-64' : 'xl:ml-0'
-        } flex-1 transition-all ease-in-out duration-300`}>
+        } transition-all ease-in-out duration-300`}>
         <div className="min-h-screen max-w-xl mx-auto px-4 py-24">
           {children}
         </div>
       </main>
-    </div>
+    </>
   )
 }
 

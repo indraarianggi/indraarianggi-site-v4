@@ -1,11 +1,13 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import { bundleMDX } from 'mdx-bundler'
+import rehypePrismPlus from 'rehype-prism-plus'
 
 import { BlogPost } from 'types/schema'
 import Tag from '@components/Tag'
 import NotionService from '@services/notion-service'
+import MDXLayoutRenderer from '@components/MDXLayoutRenderer'
 
 export const getStaticPaths = async () => {
   const notionService = new NotionService()
@@ -39,9 +41,21 @@ export const getStaticProps: GetStaticProps<{
     throw 'Error'
   }
 
+  const result = await bundleMDX({
+    source: post.markdown,
+    mdxOptions(options) {
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        [rehypePrismPlus, { ignoreMissing: true }],
+      ]
+      return options
+    },
+  })
+  const { code } = result
+
   return {
     props: {
-      markdown: post.markdown,
+      markdown: code,
       post: post.post,
     },
   }
@@ -68,7 +82,7 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <meta name="og:image" title="og:image" content={post.cover} />
       </Head>
 
-      <article className="flex flex-col items-center space-y-5 px-4">
+      <article className="flex flex-col items-center space-y-5">
         <h1 className="text-gray-900 text-center font-semibold">
           {post.title}
         </h1>
@@ -99,7 +113,7 @@ const Post: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       </article>
 
       <article className="prose mt-12">
-        <ReactMarkdown>{markdown}</ReactMarkdown>
+        <MDXLayoutRenderer markdown={markdown} />
       </article>
     </>
   )
