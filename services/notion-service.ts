@@ -46,8 +46,16 @@ export default class NotionService {
         break
     }
 
-    const { Name, Category, Tags, Description, Updated, Slug, Author } =
-      page.properties as PageProperties
+    const {
+      Name,
+      Category,
+      Tags,
+      Description,
+      PublishedAt,
+      Updated,
+      Slug,
+      Author,
+    } = page.properties as PageProperties
 
     return {
       id: page.id,
@@ -56,7 +64,8 @@ export default class NotionService {
       category: Category.select,
       tags: Tags.multi_select,
       description: Description.rich_text[0].plain_text,
-      date: Updated.last_edited_time,
+      publihedAt: PublishedAt.date.start,
+      modifiedAt: Updated.last_edited_time,
       slug: Slug.formula.string,
       author: Author.people[0],
     }
@@ -76,7 +85,7 @@ export default class NotionService {
           },
           sorts: [
             {
-              property: 'Created',
+              property: 'PublishedAt',
               direction: 'descending',
             },
           ],

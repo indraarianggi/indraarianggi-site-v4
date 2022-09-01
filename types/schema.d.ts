@@ -40,6 +40,15 @@ export type PageProperties = {
     type: string
     checkbox: boolean
   }
+  PublishedAt: {
+    id: string
+    type: string
+    date: {
+      start: string
+      end: string | null
+      time_zone: string | null
+    }
+  }
   Created: {
     id: string
     type: string
@@ -68,7 +77,8 @@ export type BlogPost = {
   category: SelectObject
   tags: SelectObject[]
   description: string
-  date: string
+  publihedAt: string
+  modifiedAt: string
   author: PersonUserObjectResponse
 }
 

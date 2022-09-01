@@ -18,6 +18,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@constants/*": ["constants/*"],
+      "@data/*": ["data/*"],
       "@hooks/*": ["hooks/*"],
       "@public/*": ["public/*"],
       "@services/*": ["services/*"],

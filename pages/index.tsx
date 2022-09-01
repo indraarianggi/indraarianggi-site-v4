@@ -1,8 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 
+import { PageSEO } from '@components/SEO'
 import SocialIcon from '@components/SocialIcon'
+import siteMetadata from '@data/siteMetadata'
 
 /**
  * Automatic Static Optimization is turned off, because in the _app.tsx file it uses getInitialProps.
@@ -17,15 +18,12 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 const Home: NextPage = () => {
-  const title = 'Test Blog'
-  const description = 'Welcome to my Notion Blog'
-
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" title="description" content={description} />
-      </Head>
+      <PageSEO
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+      />
 
       <div className="flex items-center justify-center h-96">
         <div className="space-y-4 md:space-y-2">
@@ -48,9 +46,9 @@ const Home: NextPage = () => {
             TypeScript.
           </p>
           <div className="flex items-center space-x-4 pt-2">
-            <SocialIcon kind="linkedin" href="https://linkedin.com" />
-            <SocialIcon kind="github" href="https://github.com" />
-            <SocialIcon kind="twitter" href="https://twitter.com" />
+            <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
+            <SocialIcon kind="github" href={siteMetadata.github} />
+            <SocialIcon kind="twitter" href={siteMetadata.twitter} />
           </div>
         </div>
       </div>
