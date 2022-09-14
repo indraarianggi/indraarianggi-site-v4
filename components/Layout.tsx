@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { BlogPost, PostGroupObject } from 'types/schema'
 import { CATEGORY_ORDER } from '@constants/index'
+import ButtonScrollToTop from '@components/ButtonScrollToTop'
 import useWindowDimensions from '@hooks/useWindowDimensions'
 
 type TLayoutProps = {
@@ -162,6 +163,8 @@ const Layout = ({ children, posts }: TLayoutProps) => {
           {children}
         </div>
       </main>
+
+      <ButtonScrollToTop />
     </>
   )
 }
