@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
 
-import { PageSEO } from '@components/SEO'
-import siteMetadata from '@data/siteMetadata'
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 
 export const getStaticProps: GetStaticProps = async () => {
   return { props: {} }

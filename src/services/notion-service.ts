@@ -12,7 +12,7 @@ import {
 } from '@notionhq/client/build/src/api-endpoints'
 import { NotionToMarkdown } from 'notion-to-md'
 
-import { BlogPost, PageProperties, PostPage } from 'types/schema'
+import { BlogPost, PageProperties, PostPage } from '@/types/schema'
 
 export default class NotionService {
   databaseId: string

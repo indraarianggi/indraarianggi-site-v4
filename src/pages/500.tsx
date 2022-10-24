@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
 
-import { PageSEO } from '@components/SEO'
-import siteMetadata from '@data/siteMetadata'
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 
 export const getStaticProps: GetStaticProps = async () => {
   return { props: {} }
@@ -11,7 +11,7 @@ const Custom500: NextPage = () => {
   return (
     <>
       <PageSEO
-        title={`404 - ${siteMetadata.title}`}
+        title={`500 - ${siteMetadata.title}`}
         description={siteMetadata.description}
       />
 
