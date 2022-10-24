@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 
-import { PageSEO } from '@components/SEO'
-import SocialIcon from '@components/SocialIcon'
-import siteMetadata from '@data/siteMetadata'
+import { PageSEO } from '@/components/SEO'
+import SocialIcon from '@/components/SocialIcon'
+import siteMetadata from '@/data/siteMetadata'
 
 /**
  * Automatic Static Optimization is turned off, because in the _app.tsx file it uses getInitialProps.

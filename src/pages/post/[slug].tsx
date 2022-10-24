@@ -3,11 +3,11 @@ import Image from 'next/image'
 import { bundleMDX } from 'mdx-bundler'
 import rehypePrismPlus from 'rehype-prism-plus'
 
-import { BlogPost } from 'types/schema'
-import Tag from '@components/Tag'
-import NotionService from '@services/notion-service'
-import MDXLayoutRenderer from '@components/MDXLayoutRenderer'
-import { BlogPostSEO } from '@components/SEO'
+import { BlogPost } from '@/types/schema'
+import Tag from '@/components/Tag'
+import NotionService from '@/services/notion-service'
+import MDXLayoutRenderer from '@/components/MDXLayoutRenderer'
+import { BlogPostSEO } from '@/components/SEO'
 
 export const getStaticPaths = async () => {
   const notionService = new NotionService()

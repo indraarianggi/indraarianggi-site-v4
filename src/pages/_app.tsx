@@ -1,12 +1,12 @@
 import App from 'next/app'
 import type { AppContext, AppProps } from 'next/app'
 
-import { BlogPost } from 'types/schema'
-import NotionService from '@services/notion-service'
-import Layout from '@components/Layout'
+import { BlogPost } from '@/types/schema'
+import NotionService from '@/services/notion-service'
+import Layout from '@/components/Layout'
 
-import '@styles/globals.css'
-import '@styles/prism.css'
+import '@/styles/globals.css'
+import '@/styles/prism.css'
 
 type TMyAppProps = AppProps & {
   posts: BlogPost[]

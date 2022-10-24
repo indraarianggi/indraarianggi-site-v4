@@ -2,10 +2,10 @@ import React, { ReactElement, useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import { BlogPost, PostGroupObject } from 'types/schema'
-import { CATEGORY_ORDER } from '@constants/index'
-import ButtonScrollToTop from '@components/ButtonScrollToTop'
-import useWindowDimensions from '@hooks/useWindowDimensions'
+import { BlogPost, PostGroupObject } from '@/types/schema'
+import { CATEGORY_ORDER } from '@/constants/index'
+import ButtonScrollToTop from '@/components/ButtonScrollToTop'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 type TLayoutProps = {
   children: ReactElement

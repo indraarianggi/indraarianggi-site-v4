@@ -1,10 +1,10 @@
 // Icons taken from: https://simpleicons.org/
-import Mail from '@public/icons/mail.svg'
-import Github from '@public/icons/github.svg'
-import Facebook from '@public/icons/facebook.svg'
-import Youtube from '@public/icons/youtube.svg'
-import Linkedin from '@public/icons/linkedin.svg'
-import Twitter from '@public/icons/twitter.svg'
+import Mail from '@/public/icons/mail.svg'
+import Github from '@/public/icons/github.svg'
+import Facebook from '@/public/icons/facebook.svg'
+import Youtube from '@/public/icons/youtube.svg'
+import Linkedin from '@/public/icons/linkedin.svg'
+import Twitter from '@/public/icons/twitter.svg'
 
 const components = {
   mail: Mail,
