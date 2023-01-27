@@ -1,0 +1,13 @@
+diff --git a/node_modules/notion-to-md/build/utils/md.js b/node_modules/notion-to-md/build/utils/md.js
+index d6ad672..db82c48 100644
+--- a/node_modules/notion-to-md/build/utils/md.js
++++ b/node_modules/notion-to-md/build/utils/md.js
+@@ -80,7 +80,7 @@ const addTabSpace = (text, n = 0) => {
+     const tab = "	";
+     for (let i = 0; i < n; i++) {
+         if (text.includes("\n")) {
+-            const multiLineText = text.split(/(?<=\n)/).join(tab);
++            const multiLineText = text.split(/\\n/).join(tab);
+             text = tab + multiLineText;
+         }
+         else
